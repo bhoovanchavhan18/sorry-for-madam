@@ -1646,3 +1646,49 @@ transform:translateX(140vw);
 }
 
 }
+.teddyPopup,
+.smilePopup{
+
+position:fixed;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(0,0,0,.45);
+z-index:9999;
+
+}
+
+
+.teddyBox,
+.smilePopup div{
+
+background:white;
+padding:30px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 0 30px pink;
+
+}
+
+
+.teddyBox h2,
+.smilePopup h2{
+
+font-size:55px;
+
+}
+
+
+.teddyBox button,
+.smilePopup button{
+
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:#ff4f91;
+color:white;
+font-size:17px;
+cursor:pointer;
+
+}
