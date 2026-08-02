@@ -313,29 +313,43 @@ let noCount = 0;
 let runCount = 0;
 
 const noTexts = [
-    "😜 Pakad ke dikhao",
-    "🥹 Please Babu Maan Jao",
-    "💖 Ek Chance Aur",
-    "🥺 Ab Click Kar Sakte Ho"
+
+"😜 Pakad ke dikhao Madam",
+
+"🥺 Please maan jao na",
+
+"💖 Ek smile toh banti hai",
+
+"🧸 Teddy bhi bol raha hai sorry"
+
 ];
 
 const runTexts = [
-    "😂 Arre Nahi",
-    "🥹 Please Smile",
-    "🌸 Itna Gussa?",
-    "❤️ Accha plss naa sory puchu"
+
+"😂 Arre nahi Madam",
+
+"🥹 Itna gussa?",
+
+"🌸 Smile please",
+
+"❤️ Accha maan jao na"
+
 ];
 
 function moveButton(btn){
 
     const app = document.getElementById("app");
 
-    const x = Math.random()*(app.clientWidth-170);
-    const y = Math.random()*(app.clientHeight-220);
+    const maxX = app.clientWidth - btn.offsetWidth - 20;
+    const maxY = app.clientHeight - btn.offsetHeight - 20;
+
+    const x = Math.max(10, Math.random()*maxX);
+    const y = Math.max(10, Math.random()*maxY);
 
     btn.style.position="absolute";
     btn.style.left=x+"px";
     btn.style.top=y+"px";
+
 }
 
 function setupEscape(btn,texts,isNo){
@@ -346,7 +360,7 @@ function setupEscape(btn,texts,isNo){
 
         let count = isNo ? noCount : runCount;
 
-        if(count<3){
+        if(count<4){
 
             e.preventDefault();
             e.stopPropagation();
@@ -354,14 +368,23 @@ function setupEscape(btn,texts,isNo){
             moveButton(btn);
 
             btn.innerHTML=texts[count];
+              if(count==3){
 
-            if(isNo)
+setTimeout(()=>{
+
+teddyPopup();
+
+},500);
+
+}
+
+          /*if(isNo)
                 noCount++;
             else
                 runCount++;
 
-            return false;
-        }
+            return false;*/
+        
 
         btn.innerHTML="🥰sorry na puchu maan jao";
 
@@ -635,6 +658,8 @@ heartExplosion();
 confettiRain();
 
 createBubbles();
+
+smileMessage();
 
 showFinal();
 
@@ -911,5 +936,83 @@ cloud.style.left=(-300-Math.random()*300)+"px";
 cloud.style.animationDuration=(25+Math.random()*20)+"s";
 
 document.getElementById("sky").appendChild(cloud);
+
+}
+
+/* ===========================
+      TEDDY SORRY POPUP
+=========================== */
+
+function teddyPopup(){
+
+let popup=document.createElement("div");
+
+popup.className="teddyPopup";
+
+popup.innerHTML=`
+
+<div class="teddyBox">
+
+<h2>🧸</h2>
+
+<h3>Madam maan jao na 🥺❤️</h3>
+
+<p>
+Itna gussa accha nahi lagta 😭
+<br>
+Ek cute si smile de do 🌸
+</p>
+
+<button id="popupYes">
+Ab Yes Kar Do ❤️
+</button>
+
+</div>
+
+`;
+
+document.body.appendChild(popup);
+
+
+document.getElementById("popupYes").onclick=function(){
+
+playClick();
+
+popup.remove();
+
+document.querySelector(".yes").click();
+
+};
+
+}
+function smileMessage(){
+
+let box=document.createElement("div");
+
+box.className="smilePopup";
+
+box.innerHTML=`
+
+<div>
+
+<h2>😄🧸</h2>
+
+<h3>
+Ab hass bhi do Madam ❤️
+</h3>
+
+<p>
+Aapki smile sabse cute hai 🌸
+</p>
+
+<button onclick="this.parentElement.parentElement.remove()">
+😁 Hassi aa gayi
+</button>
+
+</div>
+
+`;
+
+document.body.appendChild(box);
 
 }
