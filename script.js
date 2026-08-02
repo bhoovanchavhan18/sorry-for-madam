@@ -930,6 +930,10 @@ heartExplosion();
 createStars();
 
 };
+const sky=document.getElementById("sky");
+
+if(sky){
+
 for(let i=0;i<12;i++){
 
 let cloud=document.createElement("div");
@@ -942,7 +946,9 @@ cloud.style.left=(-300-Math.random()*300)+"px";
 
 cloud.style.animationDuration=(25+Math.random()*20)+"s";
 
-document.getElementById("sky").appendChild(cloud);
+sky.appendChild(cloud);
+
+}
 
 }
 
