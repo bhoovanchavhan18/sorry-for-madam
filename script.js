@@ -52,6 +52,9 @@ document
 
 function startMusic(){
 
+if(!bgMusic)
+return;
+
 if(musicStarted)
 return;
 
