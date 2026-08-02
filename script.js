@@ -363,35 +363,38 @@ function setupEscape(btn,texts,isNo){
 
     btn.addEventListener("click",function(e){
 
+        e.preventDefault();
+        e.stopPropagation();
+
         let count = isNo ? noCount : runCount;
 
-        if(count<4){
-
-            e.preventDefault();
-            e.stopPropagation();
+        if(count < 4){
 
             moveButton(btn);
 
             btn.innerHTML=texts[count];
-              if(count==3){
 
-setTimeout(()=>{
-
-teddyPopup();
-
-},500);
-
-}
-
-          /*if(isNo)
+            if(isNo)
                 noCount++;
             else
                 runCount++;
 
-            return false;*/
-        
+            if(count==3){
 
-        btn.innerHTML="🥰sorry na puchu maan jao";
+                setTimeout(()=>{
+
+                    teddyPopup();
+
+                },500);
+
+            }
+
+        }
+        else{
+
+            btn.innerHTML="🥰 sorry na puchu maan jao";
+
+        }
 
     });
 
