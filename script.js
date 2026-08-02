@@ -1,4 +1,4 @@
-
+console.log("SCRIPT STARTED");
 /* =====================================
       PREMIUM SORRY APP
       PART 3A
@@ -84,9 +84,32 @@ clickSound.play().catch(()=>{});
       BUTTON EVENTS
 ============================== */
 
-document
-.getElementById("openLetter")
-.onclick=function(){
+const openBtn=document.getElementById("openLetter");
+
+if(openBtn){
+
+openBtn.onclick=function(){
+
+alert("OPEN BUTTON WORKING");
+
+playClick();
+
+startMusic();
+
+document.querySelector(".envelope")
+.classList.add("openEnvelope");
+
+setTimeout(()=>{
+
+showPage("page2");
+
+startTyping();
+
+},700);
+
+};
+
+}
 
 playClick();
 
