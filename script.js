@@ -323,7 +323,7 @@ const runTexts = [
     "😂 Arre Nahi",
     "🥹 Please Smile",
     "🌸 Itna Gussa?",
-    "❤️ Accha Theek Hai"
+    "❤️ Accha plss naa sory puchu"
 ];
 
 function moveButton(btn){
