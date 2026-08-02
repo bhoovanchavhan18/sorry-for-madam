@@ -730,9 +730,9 @@ for opening this little surprise.
 
 Mujhe pata hai...
 
-ek chhoti si line se
+ek chhoti si line kaafi hoti hai hurt hone mai,sorry babu
 
-aap hurt ho gayi thi.
+aap hurt ho gayi,maaf kardo cutipie......
 
 <br><br>
 
@@ -746,11 +746,11 @@ aapko upset karna nahi tha.
 
 Tube Light wala joke...
 
-officially retired 😂
+officially retired......😌
 
 <br><br>
 
-🌸 Happy Friendship Day 🌸
+🌸 Happy Friendship Day dear madammm🌸
 
 <br><br>
 
@@ -762,7 +762,7 @@ Promise...
 
 Next time mazaak karunga...
 
-toh limit me 😅
+toh limit me 😅pakka🤝.....
 
 <br><br>
 
