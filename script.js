@@ -302,61 +302,75 @@ setTimeout(type2,350);
 ===================================== */
 
 
-/* ===========================
-      NO BUTTON RUN AWAY
-=========================== */
+/* =====================================
+      FUNNY ESCAPE BUTTONS V2
+===================================== */
 
-const noBtn=document.getElementById("no");
+const noBtn = document.getElementById("no");
+const runBtn = document.getElementById("runAway");
 
-const smileNo=document.getElementById("runAway");
+let noCount = 0;
+let runCount = 0;
 
-function randomMove(btn){
+const noTexts = [
+    "😜 Pakad ke dikhao",
+    "🥹 Please Babu Maan Jao",
+    "💖 Ek Chance Aur",
+    "🥺 Ab Click Kar Sakte Ho"
+];
 
-let x=Math.random()*220+20;
+const runTexts = [
+    "😂 Arre Nahi",
+    "🥹 Please Smile",
+    "🌸 Itna Gussa?",
+    "❤️ Accha Theek Hai"
+];
 
-let y=Math.random()*500+60;
+function moveButton(btn){
 
-btn.style.position="absolute";
+    const app = document.getElementById("app");
 
-btn.style.left=x+"px";
+    const x = Math.random()*(app.clientWidth-170);
+    const y = Math.random()*(app.clientHeight-220);
 
-btn.style.top=y+"px";
+    btn.style.position="absolute";
+    btn.style.left=x+"px";
+    btn.style.top=y+"px";
+}
+
+function setupEscape(btn,texts,isNo){
+
+    if(!btn) return;
+
+    btn.addEventListener("click",function(e){
+
+        let count = isNo ? noCount : runCount;
+
+        if(count<3){
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            moveButton(btn);
+
+            btn.innerHTML=texts[count];
+
+            if(isNo)
+                noCount++;
+            else
+                runCount++;
+
+            return false;
+        }
+
+        btn.innerHTML="🥰 Accha Theek Hai";
+
+    });
 
 }
 
-if(noBtn){
-
-noBtn.addEventListener("mouseover",()=>{
-
-randomMove(noBtn);
-
-});
-
-noBtn.addEventListener("click",()=>{
-
-randomMove(noBtn);
-
-});
-
-}
-
-
-if(smileNo){
-
-smileNo.addEventListener("mouseover",()=>{
-
-randomMove(smileNo);
-
-});
-
-smileNo.addEventListener("click",()=>{
-
-randomMove(smileNo);
-
-});
-
-}
-
+setupEscape(noBtn,noTexts,true);
+setupEscape(runBtn,runTexts,false);
 
 /* ===========================
         YES BUTTON
