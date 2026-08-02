@@ -109,25 +109,8 @@ startTyping();
 
 };
 
+}
 
-
-playClick();
-
-startMusic();
-
-document
-.querySelector(".envelope")
-.classList.add("openEnvelope");
-
-setTimeout(()=>{
-
-showPage("page2");
-
-startTyping();
-
-},700);
-
-};
 
 
 
