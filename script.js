@@ -363,7 +363,7 @@ function setupEscape(btn,texts,isNo){
             return false;
         }
 
-        btn.innerHTML="🥰 Accha Theek Hai";
+        btn.innerHTML="🥰sorry na puchu maan jao";
 
     });
 
