@@ -90,7 +90,9 @@ if(openBtn){
 
 openBtn.onclick=function(){
 
-alert("OPEN BUTTON WORKING");
+// NOTE: removed alert("OPEN BUTTON WORKING") — on mobile (esp. iOS Safari)
+// alert() blocks JS and eats the "user gesture" needed for audio.play(),
+// so bgMusic never actually started playing on phones.
 
 playClick();
 
@@ -151,16 +153,9 @@ showPage("page7");
 };
 
 
-
-document
-.getElementById("finish")
-.onclick=function(){
-
-playClick();
-
-showPage("page9");
-
-};
+// NOTE: removed the earlier duplicate "finish" handler (showPage("page9")).
+// Only one handler should exist for #finish — see showSecret() below,
+// which is the one that actually runs (it was overwriting this one anyway).
 
 
 /* ==============================
@@ -350,8 +345,13 @@ function moveButton(btn){
 
     const app = document.getElementById("app");
 
-    const maxX = app.clientWidth - btn.offsetWidth - 20;
-    const maxY = app.clientHeight - btn.offsetHeight - 20;
+    // NOTE: for this to place the button correctly on phones too,
+    // #app in your CSS must have "position: relative;" — otherwise the
+    // button positions itself relative to <body> and can land off-screen
+    // on small viewports even though the math below is correct.
+
+    const maxX = Math.max(app.clientWidth - btn.offsetWidth - 20, 0);
+    const maxY = Math.max(app.clientHeight - btn.offsetHeight - 20, 0);
 
     const x = Math.max(10, Math.random()*maxX);
     const y = Math.max(10, Math.random()*maxY);
