@@ -412,7 +412,11 @@ setupEscape(runBtn,runTexts,false);
         YES BUTTON
 =========================== */
 
-document.querySelector(".yes").onclick=function(){
+const yesBtn=document.querySelector(".yes");
+
+if(yesBtn){
+
+yesBtn.onclick=function(){
 
 playClick();
 
@@ -420,6 +424,7 @@ showPage("page5");
 
 };
 
+}
 
 /* ===========================
        LEVEL BUTTONS
