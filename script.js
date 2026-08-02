@@ -1,8 +1,4 @@
-window.onerror=function(error){
 
-alert("Error: "+error);
-
-};
 /* =====================================
       PREMIUM SORRY APP
       PART 3A
